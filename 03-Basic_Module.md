@@ -102,7 +102,7 @@ timer        4  suspend 0x00000080 0x00000200    25%   0x00000009 000
 系统字节顺序 (“little” or “big”).
 
 - sys.implementation  
-使用当前Python实现的。对于micropython，它具有以下属性:
+使用当前Python实现的。
 
 - sys.modules  
 加载模块字典。在一部分环境中它可能不包含内置模块。
