@@ -3,4 +3,4 @@
 ----------
 
 !!! tip "提示"
-    本章介绍 RT-Thread Micropython 开发基础知识，常用模块介绍，指导读者了解使用 Micropython ，并使用 Micropython 进行开发。
+     本手册介绍了 RT-Thread Micropython 的基础知识、常用模块，以及开发新模块的流程。带领读者了解 Micropython ，并学会使用 Micropython 进行开发。

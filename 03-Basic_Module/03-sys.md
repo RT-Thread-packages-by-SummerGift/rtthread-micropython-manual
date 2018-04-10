@@ -1,9 +1,7 @@
 # **sys** – 系统特有功能函数
 `sys` 模块提供系统相关的功能。
 
-更多内容可参考 [sys](http://docs.micropython.org/en/latest/pyboard/library/sys.html) 。
-
-`函数`
+## 函数
 
 - sys.exit(retval=0)  
   终止当前程序给定的退出代码。 函数会抛出 SystemExit 异常。
@@ -11,7 +9,7 @@
 - sys.print_exception(exc, file=sys.stdout)  
   打印异常与追踪到一个类似文件的对象 file (或者缺省 sys.stdout ).
 
-`常数`
+## 常数
 
 - sys.argv  
   当前程序启动时参数的可变列表。
@@ -46,7 +44,7 @@
 - sys.version_info  
   Python 语言版本，实现符合，作为一个元组的值。
 
-`example`:
+## 示例 
 
 ```
 >>> import uos
@@ -67,5 +65,7 @@ stat            unlink          mount           umount
 ['web_root', 'rtthread']
 >>> 
 ```
+
+更多内容可参考 [sys](http://docs.micropython.org/en/latest/pyboard/library/sys.html) 。
 
 ----------

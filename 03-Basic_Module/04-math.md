@@ -3,9 +3,7 @@
 
 **注意** : 需要带有硬件FPU，精度是32位，这个模块需要浮点功能支持。
 
-更多内容可参考  [math](https://docs.python.org/3.5/library/math.html?highlight=math#module-math) 。
-
-`函数`
+## 函数
 
 - math.acos(x)  
   返回 ``x`` 的反余弦。
@@ -121,12 +119,14 @@
 - math.trunc(x)  
   返回一个整数, x 接近于0。
 
-`常数`
+## 常数
 
 - math.e  
   自然对数的底
 
 - math.pi  
   圆周率
+  
+更多内容可参考  [math](https://docs.python.org/3.5/library/math.html?highlight=math#module-math) 。
 
 ----------

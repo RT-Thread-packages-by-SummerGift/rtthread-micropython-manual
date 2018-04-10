@@ -1,5 +1,11 @@
 # **rtthread** – 系统相关函数
-`rtthread` 模块提供了与 rt-thread 操作系统相关的功能，如查看栈使用情况等。
+
+
+!!! tip "简介"
+     `rtthread` 模块提供了与 rt-thread 操作系统相关的功能，如查看栈使用情况等。
+
+
+## 函数
 
 - rtthread.current_tid()  
   返回当前线程的 id 。
@@ -10,7 +16,8 @@
 - rtthread.stacks_analyze()  
   返回当前系统线程和栈使用信息。
 
-`example`:
+## 示例 
+
 ```
 >>> import rtthread
 >>> 

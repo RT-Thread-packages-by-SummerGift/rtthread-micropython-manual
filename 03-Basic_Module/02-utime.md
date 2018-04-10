@@ -1,9 +1,7 @@
 # **utime** – 时间相关函数
 `utime` 模块提供获取当前时间和日期、测量时间间隔和延迟的功能。
 
-更多内容可参考 [`time`](http://docs.micropython.org/en/latest/pyboard/library/utime.html#module-utime)  。
-
-`函数`
+## 函数
 
 - utime.sleep(seconds)  
   休眠指定的时间（秒），Seconds 可以是浮点数。注意有些版本的 MicroPython不支持浮点数，为了兼容可以使用 sleep_ms() 和 ``sleep_us()``函数。
@@ -24,10 +22,9 @@
 
 - utime.ticks_cpu()  
   与 ticks_ms() 和 ticks_us() 类似，具有更高精度 (使用 CPU 时钟)。
-
 - 可用性：并非每个端口都实现此功能。
 
-`example`:
+##   示例 
 
 ```
 >>> import time
@@ -38,5 +35,7 @@
 >>> start = time.ticks_ms() # get value of millisecond counter
 >>> delta = time.ticks_diff(time.ticks_ms(), start) # compute time difference
 ```
+
+更多内容可参考 [`time`](http://docs.micropython.org/en/latest/pyboard/library/utime.html#module-utime)  。
 
 ----------

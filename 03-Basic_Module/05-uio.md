@@ -1,13 +1,12 @@
 # **uio** – 输入/输出流
 `uio` 模块包含流类型 (类似文件) 对象和帮助函数，
-更多内容可参考  [uio](http://docs.micropython.org/en/latest/pyboard/library/uio.html) 。
 
-`函数`
+## 函数
 
 - uio.open(name, mode='r', **kwargs)  
   打开一个文件，关联到内建函数``open()``。所有端口 (用于访问文件系统) 需要支持模式参数，但支持其他参数不同的端口。
 
-`类`
+## 类
 
 - class uio.FileIO(...)  
   这个文件类型用二进制方式打开文件，等于使用``open(name, “rb”)``。 不应直接使用这个实例。
@@ -22,5 +21,7 @@
 
 - getvalue()  
   获取缓存区内容。
+  
+更多内容可参考  [uio](http://docs.micropython.org/en/latest/pyboard/library/uio.html) 。
 
 ----------
