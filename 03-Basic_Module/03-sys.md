@@ -1,4 +1,4 @@
-#### **sys** – 系统特有功能函数
+# **sys** – 系统特有功能函数
 `sys` 模块提供系统相关的功能。
 
 更多内容可参考 [sys](http://docs.micropython.org/en/latest/pyboard/library/sys.html) 。

@@ -1,4 +1,4 @@
-#### **uio** – 输入/输出流
+# **uio** – 输入/输出流
 `uio` 模块包含流类型 (类似文件) 对象和帮助函数，
 更多内容可参考  [uio](http://docs.micropython.org/en/latest/pyboard/library/uio.html) 。
 

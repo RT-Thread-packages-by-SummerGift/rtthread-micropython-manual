@@ -1,4 +1,4 @@
-#### **uselect** – 等待流事件
+# **uselect** – 等待流事件
 `uselect` 模块提供了在流上等待事件的功能（选择可操作的流），轮询是在多个对象上等待读/写活动的有效方法。
 
 更多内容可参考 [select](https://docs.python.org/3.5/library/select.html#module-select) 。

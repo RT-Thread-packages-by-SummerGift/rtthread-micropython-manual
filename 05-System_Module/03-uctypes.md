@@ -1,4 +1,4 @@
-#### **uctypes** – 以结构化的方式访问二进制数据
+# **uctypes** – 以结构化的方式访问二进制数据
 `uctypes` 模块是 MicroPython 的外函数库，它提供 C 兼容的数据类型。
 
 更多内容可参考 [ctypes](https://docs.python.org/3/library/ctypes.html?highlight=ctypes#module-ctypes) 。

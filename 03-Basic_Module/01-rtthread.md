@@ -1,4 +1,4 @@
-#### **rtthread** – 系统相关函数
+# **rtthread** – 系统相关函数
 `rtthread` 模块提供了与 rt-thread 操作系统相关的功能，如查看栈使用情况等。
 
 - rtthread.current_tid()  

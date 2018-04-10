@@ -1,4 +1,4 @@
-#### **cmath** – 复数的数学函数
+# **cmath** – 复数的数学函数
 `cmath` 模块提供了对复数的数学函数的访问。这个模块中的函数接受整数、浮点数或复数作为参数。他们还将接受任何有复杂（）或浮点（）方法的Python对象：这些方法分别用于将对象转换成复数或浮点数，然后将该函数应用到转换的结果中。
 
 更多内容可参考 [cmath](https://docs.python.org/3/library/cmath.html?highlight=cmath#module-cmath)  。

@@ -1,4 +1,4 @@
-#### **ure** – 正则表达式
+# **ure** – 正则表达式
 `ure` 模块用于测试字符串的某个模式，执行正则表达式操作。
 
 更多内容可参考 [re](https://docs.python.org/3/library/re.html?highlight=re#module-re)  。

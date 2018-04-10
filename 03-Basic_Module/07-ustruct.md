@@ -1,4 +1,4 @@
-#### **ustruct** – 打包和解包原始数据类型
+# **ustruct** – 打包和解包原始数据类型
 
 `ustruct` 模块在 Python 值和以 Python 字节对象表示的 C 结构之间执行转换。
 

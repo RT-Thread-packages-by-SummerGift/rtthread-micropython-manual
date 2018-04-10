@@ -1,4 +1,4 @@
-#### **urandom** - 随机数生成模块
+# **urandom** - 随机数生成模块
 `urandom` 模块实现了伪随机数生成器。
 
 更多内容可参考 [random](https://docs.python.org/3/library/random.html?highlight=random#module-random) 。

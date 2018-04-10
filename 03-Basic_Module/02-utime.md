@@ -1,4 +1,4 @@
-#### **utime** – 时间相关函数
+# **utime** – 时间相关函数
 `utime` 模块提供获取当前时间和日期、测量时间间隔和延迟的功能。
 
 更多内容可参考 [`time`](http://docs.micropython.org/en/latest/pyboard/library/utime.html#module-utime)  。

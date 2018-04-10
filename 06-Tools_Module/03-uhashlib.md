@@ -1,4 +1,4 @@
-#### **uhashlib** – 哈希算法
+# **uhashlib** – 哈希算法
 `uhashlib` 模块实现了二进制数据哈希算法。
 
 更多内容可参考 [hashlib](https://docs.python.org/3/library/hashlib.html?highlight=hashlib#module-hashlib)  。

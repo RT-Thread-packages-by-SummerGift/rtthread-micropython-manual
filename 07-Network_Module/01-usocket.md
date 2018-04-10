@@ -1,4 +1,4 @@
-#### **usocket** – 套接字模块
+# **usocket** – 套接字模块
 `usocket` 模块提供对BSD套接字接口的访问。
 
 更多的内容可参考 [socket](https://docs.python.org/3/library/socket.html) 。

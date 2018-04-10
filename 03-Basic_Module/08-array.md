@@ -1,4 +1,4 @@
-#### **array** – 数字数据数组
+# **array** – 数字数据数组
 ``array``  模块定义了一个对象类型，它可以简洁地表示基本值的数组：字符、整数、浮点数。
 更多内容可参考  [array](https://docs.python.org/3/library/array.html) 。
 
