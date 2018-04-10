@@ -1,4 +1,4 @@
-- machine.SPI  
+# machine.SPI  
   更多内容可参考 [machine.SPI](http://docs.micropython.org/en/latest/pyboard/library/machine.SPI.html) 。
 
 `software SPI example ` :

@@ -1,4 +1,4 @@
-- machine.Pin  
+# machine.Pin  
   更多内容可参考 [machine.Pin](http://docs.micropython.org/en/latest/pyboard/library/machine.Pin.html)  。
 
 `example`:

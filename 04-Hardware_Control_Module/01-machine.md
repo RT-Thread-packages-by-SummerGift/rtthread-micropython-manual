@@ -1,4 +1,4 @@
-#### **machine** – 与硬件相关的功能
+# **machine** – 与硬件相关的功能
 `machine` 模块包含与特定开发板上的硬件相关的特定函数。 在这个模块中的大多数功能允许实现直接和不受限制地访问和控制系统上的硬件块（如CPU，定时器，总线等）。如果使用不当，会导致故障，死机，崩溃，在极端的情况下，硬件会损坏。
 
 更多内容可参考 [machine](http://docs.micropython.org/en/latest/pyboard/library/machine.html) 。

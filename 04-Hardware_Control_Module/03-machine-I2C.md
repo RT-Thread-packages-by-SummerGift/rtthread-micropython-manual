@@ -1,4 +1,4 @@
-- machine.I2C  
+# machine.I2C  
   更多内容可参考 [machine.I2C](http://docs.micropython.org/en/latest/pyboard/library/machine.I2C.html) 。
 
 `software I2C example ` :
