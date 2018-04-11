@@ -1,4 +1,4 @@
-# RT-Thread MicroPython 入门指南
+# RT-Thread MicroPython 快速上手
 
 ## 1. 简介
 ### 1.1 主要特性
