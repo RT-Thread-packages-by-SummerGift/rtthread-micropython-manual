@@ -91,9 +91,9 @@ extensions to it, can be found in the [micropython-lib repository](https://githu
 [9]: 03-Basic_Module/09-gc.md
 [10]: 04-Hardware_Control_Module/01-machine.md
 [11]: 04-Hardware_Control_Module/02-machine-Pin.md
-[12]: 04-Hardware_Control_Module/03-machine-I2C.md'
-[13]: 04-Hardware_Control_Module/04-machine-SPI.md'
-[14]: 04-Hardware_Control_Module/05-machine-UART.md'
+[12]: 04-Hardware_Control_Module/03-machine-I2C.md
+[13]: 04-Hardware_Control_Module/04-machine-SPI.md
+[14]: 04-Hardware_Control_Module/05-machine-UART.md
 [15]: 05-System_Module/01-uos.md
 [16]: 05-System_Module/02-uselect.md
 [17]: 05-System_Module/03-uctypes.md
