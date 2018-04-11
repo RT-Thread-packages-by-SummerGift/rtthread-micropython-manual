@@ -1,5 +1,7 @@
 # **sys** – 系统特有功能函数
-`sys` 模块提供系统相关的功能。
+
+!!! tip "简介"
+    `sys` 模块提供系统相关的功能。
 
 ## 函数
 
@@ -47,23 +49,17 @@
 ## 示例 
 
 ```
->>> import uos
->>> uos.                        # Tab 
-__name__        uname           chdir           getcwd
-listdir         mkdir           remove          rmdir
-stat            unlink          mount           umount
->>> uos.mkdir("rtthread")
->>> uos.getcwd()
-'/'
->>> uos.chdir("rtthread")
->>> uos.getcwd()
-'/rtthread'
->>> uos.listdir()
-['web_root', 'rtthread', '11']
->>> uos.rmdir("11")
->>> uos.listdir()
-['web_root', 'rtthread']
->>> 
+>>> import sys
+>>> sys.version
+'3.4.0'
+>>> sys.version_info
+(3, 4, 0)
+>>> sys.path
+['', '/libs/mpy/']
+>>> sys.__name__
+'sys'
+>>> sys.platform
+'rt-thread'
 ```
 
 更多内容可参考 [sys](http://docs.micropython.org/en/latest/pyboard/library/sys.html) 。
