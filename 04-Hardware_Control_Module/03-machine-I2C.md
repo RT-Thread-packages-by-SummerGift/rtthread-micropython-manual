@@ -1,5 +1,9 @@
 # machine.I2C  
-  更多内容可参考 [machine.I2C](http://docs.micropython.org/en/latest/pyboard/library/machine.I2C.html) 。
+
+!!! abstract "简介"
+    machine.Pin
+
+## 示例 
 
 `software I2C example ` :
 ```
@@ -26,3 +30,5 @@ b'\x12'                               # starting at memory-address 8 in the slav
 >>> i2c.scan()                        # scan for slaves, returning a list of 7-bit addresses
 [81]                                  # Decimal representation
 ```
+
+  更多内容可参考 [machine.I2C](http://docs.micropython.org/en/latest/pyboard/library/machine.I2C.html) 。

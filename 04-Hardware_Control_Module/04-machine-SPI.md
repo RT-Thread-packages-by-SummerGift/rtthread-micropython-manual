@@ -1,5 +1,9 @@
 # machine.SPI  
-  更多内容可参考 [machine.SPI](http://docs.micropython.org/en/latest/pyboard/library/machine.SPI.html) 。
+
+!!! abstract "简介"
+    machine.Pin
+
+## 示例 
 
 `software SPI example ` :
 ```
@@ -30,3 +34,5 @@ b'\xff\xff\xff\xff\xff'
 bytearray(b'\xef')
 >>> spi.init(100000,0,0,8,1)     # Resetting SPI parameter
 ```
+
+  更多内容可参考 [machine.SPI](http://docs.micropython.org/en/latest/pyboard/library/machine.SPI.html) 。

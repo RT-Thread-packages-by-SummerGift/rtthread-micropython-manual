@@ -1,39 +1,67 @@
 # **machine** – 与硬件相关的功能
-`machine` 模块包含与特定开发板上的硬件相关的特定函数。 在这个模块中的大多数功能允许实现直接和不受限制地访问和控制系统上的硬件块（如CPU，定时器，总线等）。如果使用不当，会导致故障，死机，崩溃，在极端的情况下，硬件会损坏。
 
-更多内容可参考 [machine](http://docs.micropython.org/en/latest/pyboard/library/machine.html) 。
+!!! abstract "简介"
+    **machine** 模块包含与特定开发板上的硬件相关的特定函数。 在这个模块中的大多数功能允许实现直接和不受限制地访问和控制系统上的硬件块（如CPU，定时器，总线等）。如果使用不当，会导致故障，死机，崩溃，在极端的情况下，硬件会损坏。
 
-`复位功能`
+## 函数
 
-- machine.reset()  
+### 复位相关函数
+
+#### **machine.rese**()  
   重置设备的方式类似类似按下 rst 按钮。
 
-- machine.reset_cause()  
+#### **machine.reset_cause**()  
   Get the reset cause. See constants for the possible return values.
 
-`中断功能`
+### 中断相关函数
 
-- machine.disable_irq()  
+#### **machine.disable_irq**()  
   Disable interrupt requests. Returns the previous IRQ state which should be considered an opaque value. This return value should be passed to the enable_irq function to restore interrupts to their original state, before disable_irq was called.
 
-- machine.enable_irq(state)  
+#### **machine.enable_irq**(state)  
   Re-enable interrupt requests. The state parameter should be the value that was returned from the most recent call to the disable_irq function.
 
-`有效的相关功能`
+### 功耗相关函数
 
-- machine.freq()  
+#### **machine.freq**()  
   Returns CPU frequency in hertz.
 
-- machine.idle()  
+#### **machine.idle**()  
   Gates the clock to the CPU, useful to reduce power consumption at any time during short or long periods. Peripherals continue working and execution resumes as soon as any interrupt is triggered (on many ports this includes system timer interrupt occurring at regular intervals on the order of millisecond).
 
-- machine.sleep()  
+#### **machine.sleep**()  
   Stops the CPU and disables all peripherals except for WLAN. Execution is resumed from the point where the sleep was requested. For wake up to actually happen, wake sources should be configured first.
 
-- machine.deepsleep()  
+#### **machine.deepsleep**()  
   Stops the CPU and all peripherals (including networking interfaces, if any). Execution is resumed from the main script, just as with a reset. The reset cause can be checked to know that we are coming from machine.DEEPSLEEP. For wake up to actually happen, wake sources should be configured first, like Pin change or RTC timeout.
 
-`example`:
+## 常数
+
+### **machine.IDLE**
+### **machine.SLEEP**
+### **machine.DEEPSLEEP**
+IRQ wake values.
+
+### **machine.PWRON_RESET **
+### **machine.HARD_RESET **
+### **machine.WDT_RESET **
+### **machine.DEEPSLEEP_RESET **
+### **machine.SOFT_RESET**
+Reset causes.
+
+### **machine.WLAN_WAKE**
+### **machine.PIN_WAKE**
+### **machine.RTC_WAKE**
+Wake-up reasons.
+
+## 类
+
+### [class Pin](04-Hardware_Control_Module/02-machine-Pin.md) - 控制 I/O 引脚
+### [class I2C](04-Hardware_Control_Module/03-machine-I2C.md) - I2C 协议
+### [class SPI](04-Hardware_Control_Module/04-machine-SPI.md) - SPI 协议
+### [class UART](04-Hardware_Control_Module/05-machine-UART.md) - 控制串口总线
+
+## 示例 
 
 ```
 >>> import machine
@@ -67,3 +95,5 @@ GC:
 >>> machine.disable_irq()       # disable interrupt, WARNING: this operation is dangerous
 >>> machine.reset()        # hard reset, like push RESET button
 ```
+
+更多内容可参考 [machine](http://docs.micropython.org/en/latest/pyboard/library/machine.html) 。

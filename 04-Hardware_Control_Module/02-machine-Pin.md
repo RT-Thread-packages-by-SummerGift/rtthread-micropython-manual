@@ -1,7 +1,10 @@
 # machine.Pin  
-  更多内容可参考 [machine.Pin](http://docs.micropython.org/en/latest/pyboard/library/machine.Pin.html)  。
 
-`example`:
+!!! abstract "简介"
+    machine.Pin
+
+## 示例 
+
 ```
 >>> from machine import Pin
 >>> 
@@ -12,3 +15,5 @@
 >>> p_in = Pin(("X2", 32), Pin.IN, Pin.PULL_UP)
 >>> p_in.value()                # get value, 0 or 1
 ```
+
+  更多内容可参考 [machine.Pin](http://docs.micropython.org/en/latest/pyboard/library/machine.Pin.html)  。
