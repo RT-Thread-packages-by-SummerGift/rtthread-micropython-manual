@@ -1,15 +1,17 @@
 # **sys** – 系统特有功能函数
 
-!!! tip "简介"
-    `sys` 模块提供系统相关的功能。
+!!! abstract "简介"
+    **sys** 模块提供系统特有的功能。
 
 ## 函数
 
-- sys.exit(retval=0)  
+### **sys.exit**(retval=0)  
   终止当前程序给定的退出代码。 函数会抛出 `SystemExit` 异常。
-
-- sys.print_exception(exc, file=sys.stdout)  
+### **sys.print_exception**(exc, file=sys.stdout)  
   打印异常与追踪到一个类似文件的对象 file (或者缺省 `sys.stdout` ).
+
+!!! tip "与 CPython 的区别"
+    这是 CPython 中回溯模块的简化版本。不同于 `traceback.print_exception()`，这个函数用异常值代替了异常类型、异常参数和回溯对象。文件参数在对应位置，不支持更多参数。CPython 兼容回溯模块在 `micropython-lib`。  
 
 ## 常数
 
@@ -60,6 +62,8 @@
 'sys'
 >>> sys.platform
 'rt-thread'
+>>> sys.byteorder
+'little'
 ```
 
 更多内容可参考 [sys](http://docs.micropython.org/en/latest/pyboard/library/sys.html) 。
