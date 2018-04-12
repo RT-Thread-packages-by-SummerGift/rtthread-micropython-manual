@@ -11,58 +11,34 @@
 
 ## 2. 术语表
 
-### baremetal
-
-  A system without a (full-fledged) OS, for example an [MCU](http://docs.micropython.org/en/latest/pyboard/reference/glossary.html#term-mcu)-based system. When running on a baremetal system, MicroPython effectively becomes its user-facing OS with a command interpreter (REPL).
-
 ### board
 
-  A PCB board. Oftentimes, the term is used to denote a particular model of an [MCU](http://docs.micropython.org/en/latest/pyboard/reference/glossary.html#term-mcu) system. Sometimes, it is used to actually refer to [MicroPython port](http://docs.micropython.org/en/latest/pyboard/reference/glossary.html#term-micropython-port) to a particular board (and then may also refer to “boardless” ports like [Unix port](http://docs.micropython.org/en/latest/pyboard/reference/glossary.html#term-micropython-unix-port)).
-
-### callee-owned tuple
-
-  A tuple returned by some builtin function/method, containing data which is valid for a limited time, usually until next call to the same function (or a group of related functions). After next call, data in the tuple may be changed. This leads to the following restriction on the usage of callee-owned tuples - references to them cannot be stored. The only valid operation is extracting values from them (including making a copy). Callee-owned tuples is a MicroPython-specific construct (not available in the general Python language), introduced for memory allocation optimization. The idea is that callee-owned tuple is allocated once and stored on the callee side. Subsequent calls don’t require allocation, allowing to return multiple values when allocation is not possible (e.g. in interrupt context) or not desirable (because allocation inherently leads to memory fragmentation). Note that callee-owned tuples are effectively mutable tuples, making an exception to Python’s rule that tuples are immutable. (It may be interesting why tuples were used for such a purpose then, instead of mutable lists - the reason for that is that lists are mutable from user application side too, so a user could do things to a callee-owned list which the callee doesn’t expect and could lead to problems; a tuple is protected from this.)
+  开发板，通常这个术语用来表示以一个特定的 MCU 为核心的开发板 。它可以被用来指移植 MicroPython 到一个特定的开发板上，也可以指像 Unix 移植这样没有开发板的移植。
 
 ### CPython
 
-  CPython is the reference implementation of Python programming language, and the most well-known one, which most of the people run. It is however one of many implementations (among which Jython, IronPython, PyPy, and many more, including MicroPython). As there is no formal specification of the Python language, only CPython documentation, it is not always easy to draw a line between Python the language and CPython its particular implementation. This however leaves more freedom for other implementations. For example, MicroPython does a lot of things differently than CPython, while still aspiring to be a Python language implementation.
+  CPython 是 Python 编程语言的一种实现，是最被人们所熟知和使用的一种。然而它只是许多种实现中的一种（其中包括 Jython、IronPython、PyPy、 MicroPython 等）。由于没有正式的 Python 语言规范，只有 CPython 文档，在 Python 语言本身和 Cpython 这种实现之间画出一条界限往往并不容易。这同时也给其他方式的实现留下了更多的自由。比如 MicroPython 做了许多和 Cpython 不一样的事情，同时仍然希望成为 Python 语言的一种实现。
 
 ### GPIO
 
-  General-purpose input/output. The simplest means to control electrical signals. With GPIO, user can configure hardware signal pin to be either input or output, and set or get its digital signal value (logical “0” or “1”). MicroPython abstracts GPIO access using [`machine.Pin`](http://docs.micropython.org/en/latest/pyboard/library/machine.Pin.html#machine.Pin) and [`machine.Signal`](http://docs.micropython.org/en/latest/pyboard/library/machine.Signal.html#machine.Signal) classes.
-
-### GPIO port
-
-  A group of [GPIO](http://docs.micropython.org/en/latest/pyboard/reference/glossary.html#term-gpio) pins, usually based on hardware properties of these pins (e.g. controllable by the same register).
+  通用输入/输出。控制电子信号最简单的方法。通过 GPIO 用户可以配置硬件信号引脚为输入或者输出，并设置或者获取其数字信号值（逻辑  '0' 或 '1'）。 MicroPython 使用抽象类  [`machine.Pin`](04-Hardware_Control_Module/02-machine-Pin.md)  来访问 GPIO。
 
 ### interned string
 
-  A string referenced by its (unique) identity rather than its address. Interned strings are thus can be quickly compared just by their identifiers, instead of comparing by content. The drawbacks of interned strings are that interning operation takes time (proportional to the number of existing interned strings, i.e. becoming slower and slower over time) and that the space used for interned strings is not reclaimable. String interning is done automatically by MicroPython compiler and runtimer when it’s either required by the implementation (e.g. function keyword arguments are represented by interned string id’s) or deemed beneficial (e.g. for short enough strings, which have a chance to be repeated, and thus interning them would save memory on copies). Most of string and I/O operations don’t produce interned strings due to drawbacks described above.
+  由其唯一的标识而不是其地址引用的字符串。因此，可以用他们的标识符而不是通过内容快速地比较内部字符串。interned 字符串的缺点是，插入操作需要时间（与现有 interned 字符串的数量成正比，也也就是说会随着时间的推移耗时越来越久），而用于插入 interned 字符串的空间是不可回收的。当某个 interned 字符串被应用需求或者对系统有益时，就会被 MicroPython 的编译器和运行环境自动生成。由于上面的缺点，大多数字符串和输入/输出操作都不会产生 interned 字符串。
 
 ### MCU
 
-  Microcontroller. Microcontrollers usually have much less resources than a full-fledged computing system, but smaller, cheaper and require much less power. MicroPython is designed to be small and optimized enough to run on an average modern microcontroller.
+  微控制器，也称单片机，通常资源比成熟的计算机系统要少的多，但是体积更小，也更便宜，需要更少的电力。MicroPython 被设计的足够小，并且优化到可以运行在一个普通的现代微控制器上。
 
 ### micropython-lib
 
-  MicroPython is (usually) distributed as a single executable/binary file with just few builtin modules. There is no extensive standard library comparable with [CPython](http://docs.micropython.org/en/latest/pyboard/reference/glossary.html#term-cpython). Instead, there is a related, but separate project [micropython-lib](https://github.com/micropython/micropython-lib) which provides implementations for many modules from CPython’s standard library. However, large subset of these modules require POSIX-like environment (Linux, FreeBSD, MacOS, etc.; Windows may be partially supported), and thus would work or make sense only with [`MicroPython Unix port`](http://docs.micropython.org/en/latest/pyboard/reference/glossary.html#term-micropython-unix-port). Some subset of modules is however usable for [`baremetal`](http://docs.micropython.org/en/latest/pyboard/reference/glossary.html#term-baremetal) ports too.Unlike monolithic [CPython](http://docs.micropython.org/en/latest/pyboard/reference/glossary.html#term-cpython) stdlib, micropython-lib modules are intended to be installed individually - either using manual copying or using [upip](http://docs.micropython.org/en/latest/pyboard/reference/glossary.html#term-upip).
-
-### MicroPython port
-
-  MicroPython supports different [boards](http://docs.micropython.org/en/latest/pyboard/reference/glossary.html#term-board), RTOSes, and OSes, and can be relatively easily adapted to new systems. MicroPython with support for a particular system is called a “port” to that system. Different ports may have widely different functionality. This documentation is intended to be a reference of the generic APIs available across different ports (“MicroPython core”). Note that some ports may still omit some APIs described here (e.g. due to resource constraints). Any such differences, and port-specific extensions beyond MicroPython core functionality, would be described in the separate port-specific documentation.
-
-### MicroPython Unix port
-
-  Unix port is one of the major [MicroPython ports](http://docs.micropython.org/en/latest/pyboard/reference/glossary.html#term-micropython-port). It is intended to run on POSIX-compatible operating systems, like Linux, MacOS, FreeBSD, Solaris, etc. It also serves as the basis of Windows port. The importance of Unix port lies in the fact that while there are many different [boards](http://docs.micropython.org/en/latest/pyboard/reference/glossary.html#term-board), so two random users unlikely have the same board, almost all modern OSes have some level of POSIX compatibility, so Unix port serves as a kind of “common ground” to which any user can have access. So, Unix port is used for initial prototyping, different kinds of testing, development of machine-independent features, etc. All users of MicroPython, even those which are interested only in running MicroPython on [MCU](http://docs.micropython.org/en/latest/pyboard/reference/glossary.html#term-mcu) systems, are recommended to be familiar with Unix (or Windows) port, as it is important productivity helper and a part of normal MicroPython workflow.
-
-### port
-
-  Either [MicroPython port](http://docs.micropython.org/en/latest/pyboard/reference/glossary.html#term-micropython-port) or [GPIO port](http://docs.micropython.org/en/latest/pyboard/reference/glossary.html#term-gpio-port). If not clear from context, it’s recommended to use full specification like one of the above.
+  MicroPython 通常作为单个的可执行/二进制文件，只有很少的内置模块。没有广泛的标准库可以用来和 Cpython 相比。与 Cpython 不同的是 MicroPython 有一个相关但是独立的项目 `micropython-lib`，它提供了来自 CPython 标准库的许多模块的实现。然而这些模块大部分需要类似于 POSIX 的环境，只能在 MicroPython 的 Unix 移植上工作。安装方法与 Cpython 也不同，需要使用手动复制或者使用 upip 来安装。由于 RT-Thread 操作系统提供了很好的 POSIX 标准支持，所以很多 `micropython-lib` 中很多的模块可以在 RT-Thread MicroPython 上运行。
 
 ### stream
 
-  Also known as a “file-like object”. An object which provides sequential read-write access to the underlying data. A stream object implements a corresponding interface, which consists of methods like `read()`, `write()`, `readinto()`, `seek()`, `flush()`, `close()`, etc. A stream is an important concept in MicroPython, many I/O objects implement the stream interface, and thus can be used consistently and interchangeably in different contexts. For more information on streams in MicroPython, see [`uio`](http://docs.micropython.org/en/latest/pyboard/library/uio.html#module-uio) module.
+  也被称为文件类对象，一种对底层数据提供顺序读写访问的对象。stream 对象实现了一个对应的接口，包括` read()`, `write()`, `readinto()`, `seek()`, `flush()`, `close()`  等方法。在 MicroPython 中，流是一个重要的概念，许多输入/输出对象都实现了流接口，因此可以在不同的上下文中用同样的方法使用。更多关于 MicroPython 流的信息，可以参考  [uio](03-Basic_Module/05-uio.md) 。
 
 ### upip
 
-  (Literally, “micro pip”). A package manage for MicroPython, inspired by [CPython](http://docs.micropython.org/en/latest/pyboard/reference/glossary.html#term-cpython)’s pip, but much smaller and with reduced functionality. upip runs both on [Unix port](http://docs.micropython.org/en/latest/pyboard/reference/glossary.html#term-micropython-unix-port) and on [baremetal](http://docs.micropython.org/en/latest/pyboard/reference/glossary.html#term-baremetal) ports (those which offer filesystem and networking support).
+  字面意思是微型的 pip 工具。由 CPython 启发而开发的 MicroPython 包管理程序，但它要小的多，功能也更少。upip 可以在 MicroPython 的 Unix 移植上运行。由于 RT-Thread 操作系统提供了很好的 POSIX 标准支持，所以 upip 也可以运行在 RT-Thread MicroPython 上。
