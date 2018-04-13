@@ -9,7 +9,7 @@ Pin 对象用于控制输入/输出引脚（也称为 GPIO）。Pin 对象通常
 
 ## 构造函数
 
-在 RT-Thread MicroPython 中引脚对象的构造函数如下：
+在 RT-Thread MicroPython 中 Pin 对象的构造函数如下：
 
 ### **class machine.Pin**( id, mode = -1, pull = -1，value)
 - **id** ：由用户自定义的引脚名和 Pin 设备引脚号组成，如("X1", 33)，'X1' 为用户自定义的引脚名，'33' 为 RT-Thread Pin 设备驱动在本次移植中的引脚号。
