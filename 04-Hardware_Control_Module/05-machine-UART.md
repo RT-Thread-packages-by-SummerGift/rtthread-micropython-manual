@@ -1,0 +1,50 @@
+# machine.UART 
+
+!!! abstract "简介"
+    **machine.UART** 类是 machine 模块下面的一个硬件类，用于对 UART 的配置和控制，提供对 UART 设备的操作方法。
+
+`UART` 实现了标准的 `uart/usart` 双工串行通信协议，在物理层上，他由两根数据线组成：`RX` 和 `TX`。通信单元是一个字符，它可以是 8 或 9 位宽。
+
+## 构造函数
+
+在 RT-Thread MicroPython 中 `UART` 对象的构造函数如下：
+
+### **class machine.UART**(id, ...)
+根据给定的 `id` 构造串口对象。
+
+## 方法
+
+### **UART.deinit**()
+关闭串口总线。
+
+### **UART.any**()
+如果有可用的字符，那么返回真。
+
+### **UART.read**([nbytes])
+读取字符，如果指定读 n 个字节，那么最多读取 n 个字节，否则就会读取尽可能多的数据。
+返回值：一个包含读入数据的字节对象。如果如果超时则返回 `None`。
+
+### **UART.readinto**(buf[, nbytes])
+读取字符到 `buf` 中，如果指定读 n 个字节，那么最多读取 n 个字节，否则就读取尽可能多的数据。另外读取数据的长度不超过 `buf` 的长度。
+返回值：读取和存储到 `buf` 中的字节数。如果超时则返回 `None`。
+
+### **UART.readline**()
+读一行数据，以换行符结尾。
+返回值：读入的行数，如果超时则返回 `None`。
+
+### **UART.write**(buf)
+将 `buf` 中的数据写入总线。
+返回值：写入的字节数，如果超时则返回 `None`。
+
+### **UART.sendbreak**()
+在总线上发送一个中断信号。这使得总线拉低一段时间，拉低的时间比正常发送一个字符的时间要长。
+
+## 示例
+
+```python
+uart.read(10)       # read 10 characters, returns a bytes object
+uart.read()         # read all available characters
+uart.readline()     # read a line
+uart.readinto(buf)  # read and store into the given buffer
+uart.write('abc')   # write the 3 characters
+```
