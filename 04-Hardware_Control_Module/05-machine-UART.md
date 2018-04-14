@@ -10,9 +10,19 @@
 在 RT-Thread MicroPython 中 `UART` 对象的构造函数如下：
 
 ### **class machine.UART**(id, ...)
-根据给定的 `id` 构造串口对象。
+在给定总线上构造一个 `UART` 对象，`id` 取决于特定的移植。  
+初始化参数可以参考下面的 `UART.init` 方法。 
+
+使用硬件 UART 在初始化时只需传入 `UART` 设备的编号即可，如传入 `1` 表示 `uart1` 设备。   
+初始化方式可参考 [示例](#_3)。
 
 ## 方法
+
+### **UART.init**(baudrate = 9600, bits=8, parity=None, stop=1)
+- **baudrate** ：`SCK` 时钟频率。
+- **bits** ：每次发送数据的长度。
+- **parity** ：校验方式。
+- **stop** ：停止位的长度。
 
 ### **UART.deinit**()
 关闭串口总线。
@@ -38,7 +48,12 @@
 
 ## 示例
 
+在构造函数的第一个参数传入`1`，系统就会搜索名为 `uart1` 的设备，找到之后使用这个设备来构建 `UART` 对象：
+
 ```python
+from machine import UART
+uart = UART(1, 9600)                         # init with given baudrate
+uart.init(9600, bits=8, parity=None, stop=1) # init with given parameters
 uart.read(10)       # read 10 characters, returns a bytes object
 uart.read()         # read all available characters
 uart.readline()     # read a line
