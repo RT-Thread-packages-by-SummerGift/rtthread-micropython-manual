@@ -36,9 +36,6 @@
 将 `buf` 中的数据写入总线。
 返回值：写入的字节数，如果超时则返回 `None`。
 
-### **UART.sendbreak**()
-在总线上发送一个中断信号。这使得总线拉低一段时间，拉低的时间比正常发送一个字符的时间要长。
-
 ## 示例
 
 ```python
@@ -48,3 +45,5 @@ uart.readline()     # read a line
 uart.readinto(buf)  # read and store into the given buffer
 uart.write('abc')   # write the 3 characters
 ```
+
+  更多内容可参考 [machine.UART](http://docs.micropython.org/en/latest/pyboard/library/machine.UART.html) 。
