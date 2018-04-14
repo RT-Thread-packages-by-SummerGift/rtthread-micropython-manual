@@ -11,7 +11,11 @@
 在 RT-Thread MicroPython 中 `SPI` 对象的构造函数如下：
 
 ### **class machine.SPI**(id, ...)
-在给定总线上构造一个 `SPI` 对象，`id` 取决于特定的移植。值 `0`、`1`等通常用于选择硬件 `SPI` 设备 `0`、`1` 等。值 `-1` 可以用于软件 `SPI`。
+在给定总线上构造一个 `SPI` 对象，`id` 取决于特定的移植。
+
+如果想要使用软件 `SPI` , 即使用引脚模拟 `SPI` 总线，那么初始化的第一个参数需要设置为 '-1' ，可参考 [软件 SPI 示例](#spi) 。
+
+使用硬件 `SPI` 在初始化时只需传入 `SPI` 设备的编号即可，如 '50' 表示 `SPI5` 总线上的第 0 个设备。初始化方式可参考 [硬件 SPI 示例](#spi_1)。
 
 如果没有额外的参数，`SPI` 对象会被创建，但是不会被初始化，如果给出额外的参数，那么总线将被初始化，初始化参数可以参考下面的 `SPI.init` 方法。
 
@@ -59,7 +63,7 @@
 
 ## 示例
 
-`software SPI example ` :
+### `软件模拟 SPI ` 
 ```
 >>> from machine import Pin, SPI
 >>> clk = Pin(("clk", 43), Pin.OUT_PP)
@@ -73,9 +77,10 @@ SoftSPI(baudrate=500000, polarity=0, phase=0, sck=clk, mosi=mosi, miso=miso)
 b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
 ```
 
-`hardware SPI example ` :
+### `硬件 SPI ` 
 
-使用 `RT-Thread SPI` 设备来实现 `SPI` 操作，构造时传入参数 '50'，就会在系统中搜索名为 'spi50' 的设备，找到之后构建 `SPI` 对象：
+需要先开启 `SPI` 设备驱动，查找设备可以在 `msh` 中输入`list_device` 命令。  
+在构造函数的第一个参数传入  '50'，系统就会搜索名为 'spi50' 的设备，找到之后使用这个设备来构建 `SPI` 对象：
 
 ```
 >>> from machine import SPI

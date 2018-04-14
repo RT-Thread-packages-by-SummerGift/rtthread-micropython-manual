@@ -14,7 +14,10 @@
 ### **class machine.I2C**(id= -1,  scl, sda, freq=400000)
 使用下面的参数构造并返回一个新的 `I2C` 对象：
 
-- **id** ：标识特定的 `I2C`  外设。默认值为  `-1` 选择了 `I2C` 的软件实现，它可以让 `scl`  和 `sda` 在任意引脚上工作。如果 `id` 为 -1，那么必须指定 `scl` 和 `sda` 。
+- **id** ：标识特定的 `I2C`  外设。如果填入 id = -1，即选择软件模拟的方式实现 `I2C`，这时可以使用任意引脚来模拟 `I2C` 总线 ，这样在初始化时就必须指定 `scl` 和 `sda` 。  
+软件 I2C 的初始化方式可参考 [软件 I2C 示例](#i2c_2)。  
+硬件 I2C 的初始化方式可参考 [硬件 I2C 示例](#i2c_3)。
+
 - **scl** : 应该是一个 `Pin` 对象，指定为一个用于 `scl` 的 `Pin` 对象。
 - **sda** : 应该是一个 `Pin` 对象，指定为一个用于 `sda` 的 `Pin` 对象。
 - **freq** ：应该是为 `scl` 设置的最大频率。
@@ -75,7 +78,7 @@
 
 ## 示例 
 
-`software I2C example ` :
+### `软件模拟 I2C ` 
 ```
 >>> from machine import Pin, I2C
 >>> clk = Pin(("clk", 43), Pin.OUT_OD)   # Select the 43 pin device as the clock
@@ -93,9 +96,10 @@ b'\x12'                               # starting at memory-address 8 in the slav
                                       # starting at address 2 in the slave
 ```
 
-`hardware I2C example ` :
+### `硬件 I2C ` 
 
-使用 `RT-Thread  I2C` 设备来实现 `I2C` 操作，构造时传入参数 '0'，就会在系统中搜索名为 'i2c0' 的设备，找到之后构建 `I2C` 对象：
+需要先开启 `I2C` 设备驱动，查找设备可以在 `msh` 中输入`list_device` 命令。  
+在构造函数的第一个参数传入 '0'，系统就会搜索名为 'i2c0' 的设备，找到之后使用这个设备来构建 `I2C` 对象：
 
 ```
 >>> from machine import Pin, I2C

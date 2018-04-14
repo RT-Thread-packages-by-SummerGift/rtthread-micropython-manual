@@ -59,10 +59,10 @@
 
 ## 类
 
-### [class Pin](04-Hardware_Control_Module/02-machine-Pin.md) - 控制 I/O 引脚
-### [class I2C](04-Hardware_Control_Module/03-machine-I2C.md) - I2C 协议
-### [class SPI](04-Hardware_Control_Module/04-machine-SPI.md) - SPI 协议
-### [class UART](04-Hardware_Control_Module/05-machine-UART.md) - 控制串口总线
+### [class Pin](02-machine-Pin.md) - 控制 I/O 引脚  
+### [class I2C](03-machine-I2C.md) - I2C 协议  
+### [class SPI](04-machine-SPI.md) - SPI 协议  
+### [class UART](05-machine-UART.md) - 串口
 
 ## 示例 
 
