@@ -1,4 +1,4 @@
-# machine.SPI  
+# machine.SPI
 
 !!! abstract "简介"
     **machine.SPI** 类是 machine 模块下面的一个硬件类，用于对 SPI 的配置和控制，提供对 SPI 设备的操作方法。
@@ -13,7 +13,7 @@
 ### **class machine.SPI**(id, ...)
 在给定总线上构造一个 `SPI` 对象，`id` 取决于特定的移植。值 `0`、`1`等通常用于选择硬件 `SPI` 设备 `0`、`1` 等。值 `-1` 可以用于软件 `SPI`。
 
-如果没有额外的参数，`SPI` 对象会被创建，但是不会被初始化，如果给出额外的参数，那么总线将被初始化，初始化参数可以参考下面的 **SPI.init** 方法。
+如果没有额外的参数，`SPI` 对象会被创建，但是不会被初始化，如果给出额外的参数，那么总线将被初始化，初始化参数可以参考下面的 `SPI.init` 方法。
 
 ## 方法
 
@@ -47,6 +47,7 @@
 在读出数据到 `readbuf` 时，从 `writebuf` 中写入数据。缓冲区可以是相同的或不同，但是两个缓冲区必须具有相同的长度。返回 `None`。
 
 ## 常量
+
 ### **SPI.MASTER**
 用于初始化 `SPI` 总线为主机。
 
@@ -56,7 +57,7 @@
 ### **SPI.LSB**
 设置从低位开始传输数据。
 
-## 示例 
+## 示例
 
 `software SPI example ` :
 ```
@@ -64,7 +65,7 @@
 >>> clk = Pin(("clk", 43), Pin.OUT_PP)
 >>> mosi = Pin(("mosi", 44), Pin.OUT_PP)
 >>> miso = Pin(("miso", 45), Pin.IN)
->>> spi = SPI(-1,500000,polarity = 0,phase = 0,bits = 8,firstbit = 0,sck = clk,mosi = mosi,miso = miso)
+>>> spi = SPI(-1, 500000, polarity = 0, phase = 0, bits = 8, firstbit = 0, sck = clk, mosi = mosi, miso = miso)
 >>> print(spi)
 SoftSPI(baudrate=500000, polarity=0, phase=0, sck=clk, mosi=mosi, miso=miso)
 >>> spi.write("hello rt-thread!")
@@ -73,6 +74,9 @@ b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
 ```
 
 `hardware SPI example ` :
+
+使用 `RT-Thread SPI` 设备来实现 `SPI` 操作，构造时传入参数 '50'，就会在系统中搜索名为 'spi50' 的设备，找到之后构建 `SPI` 对象：
+
 ```
 >>> from machine import SPI
 >>> spi = SPI(50)
