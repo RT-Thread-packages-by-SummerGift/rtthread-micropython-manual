@@ -33,7 +33,7 @@
 
 ### **Pin.value**([x])
 如果没有给定参数 `x` ,这个方法可以获得引脚的值。  
-如果给定参数 `x` ，如 0 或 1，那么设置引脚的值为 逻辑 '0' 或 逻辑 '1'。
+如果给定参数 `x` ，如 `0` 或 `1`，那么设置引脚的值为 逻辑 '0' 或 逻辑 '1'。
 
 ### **Pin.name**()
 返回引脚对象在构造时用户自定义的引脚名。
@@ -44,24 +44,24 @@
 
 ### 选择引脚模式：
 #### **Pin.IN**
-#### **Pin.OUT** 
+#### **Pin.OUT**
 #### **Pin.OPEN_DRAIN**
 
 ### 选择上/下拉模式：
-#### **Pin.PULL_UP** 
+#### **Pin.PULL_UP**
 #### **Pin.PULL_DOWN**
 #### **None**  
 使用值 `None` 代表不进行上下拉。
 
-## 示例 
+## 示例
 
 ```
 >>> from machine import Pin
->>> 
+>>>
 >>> p_out = Pin(("X1", 33), Pin.OUT_PP)
 >>> p_out.value(1)              # set io high
 >>> p_out.value(0)              # set io low
->>> 
+>>>
 >>> p_in = Pin(("X2", 32), Pin.IN, Pin.PULL_UP)
 >>> p_in.value()                # get value, 0 or 1
 ```
