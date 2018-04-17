@@ -99,7 +99,7 @@ b'\x12'                               # starting at memory-address 8 in the slav
 ### `硬件 I2C `
 
 需要先开启 `I2C` 设备驱动，查找设备可以在 `msh` 中输入`list_device` 命令。  
-在构造函数的第一个参数传入 '0'，系统就会搜索名为 'i2c0' 的设备，找到之后使用这个设备来构建 `I2C` 对象：
+在构造函数的第一个参数传入 `0`，系统就会搜索名为 `i2c0` 的设备，找到之后使用这个设备来构建 `I2C` 对象：
 
 ```
 >>> from machine import Pin, I2C
