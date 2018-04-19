@@ -3,7 +3,7 @@
 
 更多内容可参考 [select](https://docs.python.org/3.5/library/select.html#module-select) 。
 
-`函数`
+## `函数`
 
 - select.poll()  
   创建轮询类的实例。
