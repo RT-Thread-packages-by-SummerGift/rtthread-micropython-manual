@@ -2,7 +2,7 @@
 !!! abstract "简介"
     `uselect` 模块提供了在流上等待事件的功能（选择可操作的流），轮询是在多个对象上等待读/写活动的有效方法。
 
-## `函数`
+## 函数
 
 ### **select.poll**()  
 创建轮询类的实例。
@@ -21,7 +21,7 @@
 ### **select.POLLHUP** - 流结束/连接终止检测  
 eventmask 默认 select.POLLIN | select.POLLOUT.
 
-## `类 Poll`
+## 类 Poll
 
 ### **poll.register**(obj[, eventmask])  
 注册轮询对象 。 
