@@ -3,44 +3,33 @@
 !!! abstract "简介"
     `uos` 模块包含了对文件系统的访问操作，是对应 CPython 模块的一个子集。
 
-更多内容可参考 [uos](http://docs.micropython.org/en/latest/pyboard/library/uos.html) 。
-
 ## 函数
 
-### uos.chdir(path)  
-
+### **uos.chdir**(path)  
 更改当前目录。
 
-### uos.getcwd()  
-
+### **uos.getcwd**()  
 获取当前目录。
 
-### uos.listdir([dir])
+### **uos.listdir**([dir])
+没有参数就列出当前目录，否则列出给定目录。
 
-没有参数，列出当前目录。否则列出给定目录。
-
-### uos.mkdir(path)  
-
+### **uos.mkdir**(path)  
 创建一个目录。
 
-### uos.remove(path)  
-
+### **uos.remove**(path)  
 删除文件。
 
-### uos.rmdir(path)  
-
+### **uos.rmdir**(path)  
 删除目录。
 
-### uos.rename(old_path, new_path)  
-
+### **uos.rename**(old_path, new_path)  
 重命名文件。
 
-### uos.stat(path)  
-
+### **uos.stat**(path)  
 获取文件或目录的状态。
 
-### uos.sync()  
-
+### **uos.sync**()  
 同步所有的文件系统。
 
 ## 示例
@@ -64,5 +53,7 @@ stat            unlink          mount           umount
 ['web_root', 'rtthread']
 >>> 
 ```
+
+更多内容可参考 [uos](http://docs.micropython.org/en/latest/pyboard/library/uos.html) 。
 
 ----------

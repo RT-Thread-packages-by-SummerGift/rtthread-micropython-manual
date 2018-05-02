@@ -20,7 +20,7 @@ RT-Thread MicroPython mini 版本占用资源最大不超过：
 
 ![elect_micropytho](./figures/select_micropython.png)
 
-- 使用 env 下载 MicroPython 软件包的方法请参考: [`RT-Thread env 工具使用手册`](https://www.rt-thread.org/document/site/docs/tools/env/env-user-manual/)
+- 使用 env 下载 MicroPython 软件包的方法请参考: [`RT-Thread env 工具使用手册`](https://www.rt-thread.org/document/site/rtthread-development-guide/rtthread-tool-manual/env/env-user-manual/)
 
 ### 1.3 选择开发环境
 
