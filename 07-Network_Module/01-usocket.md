@@ -36,13 +36,13 @@
 示例：
 
 ```
->>> info = socket.getaddrinfo("127.0.0.1", 10000)
+>>> info = socket.getaddrinfo("rt-thread.org", 10000)
 >>> print(info)
-[(2, 1, 0, '127.0.0.1', ('127.0.0.1', 10000))]
+[(2, 1, 0, '', ('118.31.15.152', 10000))]
 ```
 
 ### **socket.close**()  
-关闭套接字。一旦关闭后，套接字所有的功能都将失效。远端将接收不到任何数据 (清理队列数据后)。 在回收垃圾时套接字会自动关闭，但还是推荐在必要时用 close() 去关闭，或, or to use a with statement around them。
+关闭套接字。一旦关闭后，套接字所有的功能都将失效。远端将接收不到任何数据 (清理队列数据后)。 虽然在垃圾回收时套接字会自动关闭，但还是推荐在必要时用 close() 去关闭。
 
 ### **socket.bind**(address)  
 将套接字绑定到地址，套接字不能是已经绑定的。
@@ -56,7 +56,7 @@ backlog：接受套接字的最大个数，至少为0，如果没有指定，则
 ### **socket.accept**()  
 接收连接请求。 
 **注意：** 
-   只能在绑定地址端口号和监听后调用，返回conn和address。
+   只能在绑定地址端口号和监听后调用，返回 conn 和 address。
 
 ```
 conn：新的套接字对象，可以用来收发消息
@@ -71,23 +71,10 @@ address：服务器地址和端口号的元组或列表
 ```
 
 ### **socket.send**(bytes)  
-发送数据，并返回发送的字节数。
+发送数据，并返回成功发送的字节数，返回字节数可能比发送的数据长度少。
 
 ```
 bytes：bytes类型数据
-```
-
-### **socket.sendall**(bytes)  
-与 send() 函数类似，区别是 sendall() 函数通过数据块连续发送数据。
-
-```
-bytes：bytes类型数据
-```
-
-示例：
-
-```
-s.sendall("hello DFRobot, I am TCP Client")
 ```
 
 ### **socket.recv**(bufsize)  
@@ -104,7 +91,7 @@ data = conn.recv(1024)
 ```
 
 ### **socket.sendto**(bytes, address)  
-发送数据，目标由address决定，用于UDP通信，返回发送的数据大小。
+发送数据，目标由address决定，常用于UDP通信，返回发送的数据大小。
 
 ```
 bytes：bytes类型数据
@@ -114,11 +101,11 @@ address：目标地址和端口号的元组
 示例：
 
 ```
-data = sendto("hello DFRobot", ("192.168.3.147", 100))
+data = sendto("hello RT-Thread", ("192.168.10.110", 100))
 ```
 
 ### **socket.recvfrom**(bufsize)  
-接收数据，用于UDP通信，并返回接收到的数据对象和对象的地址。
+接收数据，常用于UDP通信，并返回接收到的数据对象和对象的地址。
 
 ```
 bufsize：指定一次接收的最大数据量
@@ -167,7 +154,7 @@ Return value: number of bytes read and stored into buf.
 接收一行数据，遇换行符结束，并返回接收数据的对象 。 
 
 ### **socket.write**(buf)  
-将字节类型数据写入套接字，并返回写入数据的大小。 
+将字节类型数据写入套接字，并返回写入成功的数据大小。 
 
 ## 示例
 
