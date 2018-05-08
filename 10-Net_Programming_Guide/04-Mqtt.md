@@ -1,6 +1,7 @@
 ## Mqtt
 
-MQTT 是一种基于发布/订阅（publish/subscribe）模式的“轻量级”通讯协议 。想要在 RT-Thread MicroPython 上使用 MQTT 功能需要安装 `umqtt.simple` 模块。
+!!! abstract "简介"
+    MQTT 是一种基于发布/订阅（publish/subscribe）模式的“轻量级”通讯协议 。本章介绍如何在 RT-Thread MicroPython 上使用 MQTT 功能，使用到的模块为 `umqtt.simple` 模块。
 
 ### 获取并安装 umqtt.simple 模块
 同样的可以使用包管理中的两种方式来获取，使用 upip 安装的方式可使用  `upip.install("micropython-umqtt.simple")`如图：

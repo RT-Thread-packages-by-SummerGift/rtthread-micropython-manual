@@ -1,6 +1,7 @@
 ## Http Server
 
-如果想要使用 RT-Thread MicroPython 搭建一个 Web 服务器该怎么做呢，这时候我们可以利用 MicroWebSrv 模块来实现这一功能。
+!!! abstract "简介"
+    本章介绍如何使用 RT-Thread MicroPython 搭建一个 Web 服务器，需要使用到的模块为 MicroWebSrv 模块。
 
 ### 获取并安装 MicroWebSrv 模块 
 - 首先从 `https://github.com/jczic/MicroWebSrv.git` 将相关文件克隆到本地。
