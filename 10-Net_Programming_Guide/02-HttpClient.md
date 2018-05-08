@@ -17,7 +17,7 @@
 
 ### urequests 模块的使用
 
-下面示例程序使用 `get` 命令来抓取 `http://www.baidu.com/` 的首页信息，并按照一定格式输出：
+下面示例程序使用 `get` 命令来抓取 `http://www.baidu.com/` 的首页信息，并格式化输出：
 
 ```python
 try:
